@@ -1,0 +1,9 @@
+.menus_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    width: 100;
+}
