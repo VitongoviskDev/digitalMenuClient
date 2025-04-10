@@ -1,3 +1,16 @@
+.menu_page{
+    padding: 1em;
+}
+
+.title{
+    font-size: 1.6em;
+}
+.title span{
+    font-size: .8em;
+    font-weight: 400;
+    color: #2c2c2c;
+}
+
 .menus_container{
     display: flex;
     flex-direction: column;
@@ -6,4 +19,5 @@
     gap: 1em;
 
     width: 100;
+    margin-top: 2em;
 }

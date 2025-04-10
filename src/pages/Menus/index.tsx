@@ -7,14 +7,14 @@ import Menu from '../../components/Menu';
 
 const MenusPage = () => {
 
-    const [menu, setMenu] = useState<MenuMinDTO[]>([]);
+    const [menus, setMenus] = useState<MenuMinDTO[]>([]);
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
                 const response = await api.get('/menus');
                 console.log(response.data.content.length)
-                setMenu(response.data.content);
+                setMenus(response.data.content);
 
             } catch (error) {
                 console.error('Erro ao buscar menu:', error);
@@ -26,9 +26,9 @@ const MenusPage = () => {
 
     return (
         <div className={styles.menu_page}>
-            <h1 className={styles.title}>Cardápios</h1>
+            <h1 className={styles.title}>Cardápios <span>({menus.length})</span></h1>
             <div className={styles.menus_container}>
-                {menu.map((item, index) => (
+                {menus.map((item, index) => (
                     <Menu key={index} id={item.id} name={item.name} description={item.description} imageUri={item.imageUri} />
                 ))}
             </div>

@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import api from '../../../axiosConfig';
 import { MenuDTO } from '../../dtos/MenuDTO';
 
+import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
+
 import styles from './MenuDetailsPage.module.css';
 
 const MenuDetailsPage = () => {
@@ -45,7 +48,13 @@ const MenuDetailsPage = () => {
                         <div className={styles.item_data_container}>
                           <p className={styles.item_name}>{item.name}</p>
                           <p className={styles.item_description}>{item.description}</p>
-                          <p className={styles.item_price}>{item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                          <div className={styles.item_data_bottom}>
+                            <p className={styles.item_price}>{item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            <div className={styles.item_buttons}>
+                              <button className={styles.item_button}><AiOutlineEdit/></button>
+                              <button className={styles.item_button}><AiOutlineDelete/></button>
+                            </div>
+                          </div>
                         </div>
                       </li>
                     ))

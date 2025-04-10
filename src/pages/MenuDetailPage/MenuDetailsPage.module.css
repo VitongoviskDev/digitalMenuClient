@@ -70,13 +70,14 @@
 }
 
 .item_data_container {
-    display: grid;
-    grid-template-areas: 
-        "name name" 
-        "description price";
-    grid-template-columns: 5fr 1fr;
-    align-items: center;
-    padding: 1em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: .2em;
+
+    padding: .5em;
+    padding-right: 1em;
 }
 
 .item_name {
@@ -90,9 +91,25 @@
 
     font-size: .8em;
 }
-
+.item_data_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 .item_price {
     grid-area: price;
     font-size: .8em;
     font-weight: 600;
+}
+
+.item_buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em
+}
+
+.item_button{
+    border:  none;
 }
