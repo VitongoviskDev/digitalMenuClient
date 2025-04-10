@@ -1,0 +1,98 @@
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 128px;
+
+    background-color: #2c2c2c;
+}
+
+.menu_image {
+    position: absolute;
+    left: 50%;
+    bottom: -48px;
+
+    transform: translateX(-50%);
+
+    width: 128px;
+    aspect-ratio: 1;
+
+    border-radius: .5em;
+}
+
+.menu_data_container {
+    padding: 3em 1em;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.description {
+    font-size: .9rem;
+    font-weight: 400;
+
+    color: #2c2c2c;
+}
+
+.items_label {
+    margin-top: 1em;
+}
+
+.items_label span {
+    font-size: .7em;
+    font-weight: 400;
+    color: #4e4e4e;
+}
+
+.items_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.item_card {
+    display: flex;
+    list-style-type: none;
+
+    background-color: #f2f2f2;
+    border-radius: .4em;
+}
+
+.item_image {
+    width: 100px;
+    aspect-ratio: 1;
+
+    border-radius: .4em;
+}
+
+.item_data_container {
+    display: grid;
+    grid-template-areas: 
+        "name name" 
+        "description price";
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+    padding: 1em 0.5em;
+}
+
+.item_name {
+    grid-area: name;    
+    font-size: .9em;
+    font-weight: 600;
+}
+
+.item_description {
+    grid-area: description;
+
+    font-size: .8em;
+}
+
+.item_price {
+    grid-area: price;
+    font-size: .8em;
+    font-weight: 600;
+}
