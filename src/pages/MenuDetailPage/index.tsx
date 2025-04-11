@@ -38,25 +38,27 @@ const MenuDetailsPage = () => {
   }
 
   const handlePopupButtonClick = async (del: boolean) => {
-    if (del && deleteItem) {
-      try {
-        const response = await api.get(`/menus/${id}`);
-        const updatedProducts = response.data.products.filter(
-          (product: ProductDTO) => product.id !== deleteItem.id
-        );
+    const updateMenu = async () => {
+      if (del && deleteItem) {
+        try {
+          const updatedProducts = menu!.products.filter(
+            (product: ProductDTO) => product.id !== deleteItem.id
+          )
 
-        await api.put(`/menus/${id}`, {
-          ...response.data,
-          products: updatedProducts
-        });
+          const updateMenu: MenuDTO = { ...menu!, products: updatedProducts };
 
-        setDeleteItem(null); // fecha o popup
-        setReloadTrigger(prev => !prev); // força o useEffect rodar de novo
-      } catch (error) {
-        console.error('Erro ao excluir item:', error);
+          const response = await api.put(`/menus/${id}`, updateMenu);
+
+          setMenu(response.data);
+        } catch (error) {
+          console.error('Erro ao excluir item:', error);
+        }
       }
     }
-    setDeleteItem(null); // só fecha o popup
+
+    updateMenu();
+
+    setDeleteItem(null);
   };
 
   return (
@@ -77,12 +79,12 @@ const MenuDetailsPage = () => {
             <div className={styles.menu_data_container}>
               <h2 className={styles.title}>{menu.name}</h2>
               <p className={styles.description}>{menu.description}</p>
-              <p className={styles.items_label}>Itens <span>(26)</span></p>
+              <p className={styles.items_label}>Itens <span>({menu.products.length})</span></p>
               <div className={styles.items_container}>
                 <ul className={styles.items_list}>
                   {
                     menu.products.map((item, index) => {
-                      item.imageUri = menu.imageUri;
+                      item.imageUrl = menu.imageUri;
                       return <MenuItemCard key={index} item={item} onDeleteItemClicked={onDeleteItemClicked} />
                     })
                   }
