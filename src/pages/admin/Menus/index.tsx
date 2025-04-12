@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import styles from './MenusPage.module.css';
-import { MenuMinDTO } from '../../dtos/MenuMinDTO';
-import api from '../../../axiosConfig';
-import Menu from '../../components/Menu';
+import { MenuMinDTO } from '../../../dtos/MenuMinDTO';
+import api from '../../../../axiosConfig';
+import Menu from '../../../components/Menu';
 
 const MenusPage = () => {
 

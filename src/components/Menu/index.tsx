@@ -39,7 +39,7 @@ const Menu = (props: MenuMinDTO) => {
                         <li className={styles.display_list_item}>Sex</li>
                     </ul>
                 </div>
-                <Link className={styles.button} to={`/menus/${props.id}`}>Detalhes</Link>
+                <Link className={styles.button} to={`/admin/menus/${props.id}`}>Detalhes</Link>
             </div>
         </div>
     )

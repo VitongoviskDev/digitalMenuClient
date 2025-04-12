@@ -26,9 +26,9 @@ const Navbar = () => {
                 <div className={styles.nav_container}>
 
                     <nav className={styles.navbar}>
-                        <Link className={styles.nav_item} to="/" onClick={closeMenu}>Home</Link>
-                        <Link className={styles.nav_item} to="/menus" onClick={closeMenu}>Menus</Link>
-                        <Link className={styles.nav_item} to="/about" onClick={closeMenu}>About</Link>
+                        <Link className={styles.nav_item} to="/admin/" onClick={closeMenu}>Home</Link>
+                        <Link className={styles.nav_item} to="/admin/menus" onClick={closeMenu}>Menus</Link>
+                        <Link className={styles.nav_item} to="/admin/about" onClick={closeMenu}>About</Link>
                     </nav>
                 </div>
             }

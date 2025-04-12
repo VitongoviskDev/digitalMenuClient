@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import api from '../../../axiosConfig';
-import { MenuDTO } from '../../dtos/MenuDTO';
+import api from '../../../../axiosConfig';
+import { MenuDTO } from '../../../dtos/MenuDTO';
 
 import styles from './MenuDetailsPage.module.css';
-import MenuItemCard from '../../components/MenuItemCard';
+import MenuItemCard from '../../../components/MenuItemCard';
 import { Link } from 'react-router-dom';
 
 import { IoMdArrowBack } from "react-icons/io";
-import { ProductDTO } from '../../dtos/ProductDTO';
-import DeletePopUp from '../../components/DeletePopUp';
+import { ProductDTO } from '../../../dtos/ProductDTO';
+import DeletePopUp from '../../../components/DeletePopUp';
 
 const MenuDetailsPage = () => {
   const { id } = useParams();
