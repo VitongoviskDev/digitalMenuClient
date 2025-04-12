@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import styles from './DeletePopUp.module.css';
 
@@ -11,6 +11,14 @@ const DeletePopUp = (props: DeletePopUpProps) => {
     const handleButtonClicked = (del: boolean) => {
         props.onButtonClicked(del);
     }
+    
+    useEffect(() => {
+        document.body.classList.add('no-scroll');
+
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, []);
 
     return (
         <div className={styles.popup_container}>

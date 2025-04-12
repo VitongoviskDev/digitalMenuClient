@@ -16,7 +16,6 @@ const MenuDetailsPage = () => {
 
   const [menu, setMenu] = useState<MenuDTO>();
   const [deleteItem, setDeleteItem] = useState<ProductDTO | null>(null);
-  const [reloadTrigger, setReloadTrigger] = useState(false);
 
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const MenuDetailsPage = () => {
     };
 
     fetchMenu();
-  }, [reloadTrigger]); // roda novamente sempre que reloadTrigger muda
+  }, []); // roda novamente sempre que reloadTrigger muda
 
 
   const onDeleteItemClicked = (item: ProductDTO) => {

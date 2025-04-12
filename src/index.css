@@ -10,3 +10,7 @@
 body > div{
   min-height: 100%;
 }
+
+body.no-scroll{
+  overflow-y: hidden;
+}
