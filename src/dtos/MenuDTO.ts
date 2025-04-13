@@ -1,9 +1,10 @@
-import { ProductDTO } from "./ProductDTO";
+import { MenuSectionDTO } from "./MenuSectionDTO";
 
 export type MenuDTO = {
   id: number;
   name: string;
   description: string;
   imageUri: string;
-  products: ProductDTO[]
+  menuSections: MenuSectionDTO[];
+  itemsAmount: number
 };

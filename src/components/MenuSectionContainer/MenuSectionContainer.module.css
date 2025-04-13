@@ -1,0 +1,19 @@
+.sections_container{
+    margin-top: .5em;
+}
+
+.sections_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.section_item{
+    list-style-type: none;
+}
+
+.items_list{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}

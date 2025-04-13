@@ -4,18 +4,24 @@ import api from '../../../../axiosConfig';
 import { MenuDTO } from '../../../dtos/MenuDTO';
 
 import styles from './MenuDetailsPage.module.css';
-import MenuItemCard from '../../../components/MenuItemCard';
 import { Link } from 'react-router-dom';
 
 import { IoMdArrowBack } from "react-icons/io";
 import { ProductDTO } from '../../../dtos/ProductDTO';
 import DeletePopUp from '../../../components/DeletePopUp';
+import MenuSectionContainer from '../../../components/MenuSectionContainer/index.';
+import { MenuSectionDTO } from '../../../dtos/MenuSectionDTO';
 
 const MenuDetailsPage = () => {
   const { id } = useParams();
 
+  interface sectionItem{
+    section: MenuSectionDTO,
+    item: ProductDTO
+  }
+
   const [menu, setMenu] = useState<MenuDTO>();
-  const [deleteItem, setDeleteItem] = useState<ProductDTO | null>(null);
+  const [deleteItem, setDeleteItem] = useState< sectionItem | null>(null);
 
 
   useEffect(() => {
@@ -29,24 +35,24 @@ const MenuDetailsPage = () => {
     };
 
     fetchMenu();
-  }, []); // roda novamente sempre que reloadTrigger muda
+  }, []);
 
 
-  const onDeleteItemClicked = (item: ProductDTO) => {
-    setDeleteItem(item);
+  const onDeleteItemClicked = (section: MenuSectionDTO,item: ProductDTO) => {
+    setDeleteItem({section, item});
   }
 
   const handlePopupButtonClick = async (del: boolean) => {
     const updateMenu = async () => {
       if (del && deleteItem) {
         try {
-          const updatedProducts = menu!.products.filter(
-            (product: ProductDTO) => product.id !== deleteItem.id
+          const updatedProducts = deleteItem.section.products.filter(
+            (product: ProductDTO) => product.id !== deleteItem.item.id
           )
 
-          const updateMenu: MenuDTO = { ...menu!, products: updatedProducts };
+          const updateSection: MenuSectionDTO = { ...deleteItem.section, products: updatedProducts };
 
-          const response = await api.put(`/menus/${id}`, updateMenu);
+          const response = await api.put(`/sections/${id}`, updateSection);
 
           setMenu(response.data);
         } catch (error) {
@@ -78,17 +84,8 @@ const MenuDetailsPage = () => {
             <div className={styles.menu_data_container}>
               <h2 className={styles.title}>{menu.name}</h2>
               <p className={styles.description}>{menu.description}</p>
-              <p className={styles.items_label}>Itens <span>({menu.products.length})</span></p>
-              <div className={styles.items_container}>
-                <ul className={styles.items_list}>
-                  {
-                    menu.products.map((item, index) => {
-                      item.imageUrl = menu.imageUri;
-                      return <MenuItemCard key={index} item={item} onDeleteItemClicked={onDeleteItemClicked} />
-                    })
-                  }
-                </ul>
-              </div>
+              <p className={styles.items_label}>Itens <span>({menu.itemsAmount})</span></p>
+              <MenuSectionContainer menu={menu} onDeleteItemClicked={onDeleteItemClicked}/>
             </div>
           </div> :
           <>

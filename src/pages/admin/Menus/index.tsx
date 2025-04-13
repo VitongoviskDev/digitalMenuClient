@@ -29,7 +29,7 @@ const MenusPage = () => {
             <h1 className={styles.title}>Cardápios <span>({menus.length})</span></h1>
             <div className={styles.menus_container}>
                 {menus.map((item, index) => (
-                    <Menu key={index} id={item.id} name={item.name} description={item.description} imageUri={item.imageUri} />
+                    <Menu key={index} menu={item} />
                 ))}
             </div>
         </div>

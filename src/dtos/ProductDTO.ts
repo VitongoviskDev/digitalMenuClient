@@ -4,4 +4,5 @@ export type ProductDTO = {
     description: string;
     price: number;
     imageUrl: string;
+    sectionId: number;
 }

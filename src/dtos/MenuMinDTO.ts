@@ -3,5 +3,6 @@ export type MenuMinDTO = {
     name: string;
     description: string;
     imageUri: string;
+    workingDays: string[]
   };
   

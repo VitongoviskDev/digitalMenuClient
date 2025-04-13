@@ -4,19 +4,23 @@ import { MenuMinDTO } from '../../dtos/MenuMinDTO'
 import styles from './Menu.module.css';
 import { Link } from 'react-router-dom';
 
-const Menu = (props: MenuMinDTO) => {
+interface MenuProps {
+    menu: MenuMinDTO;
+}
+
+const Menu = (props: MenuProps) => {
     return (
         <div className={styles.menu_container}>
             <div className={styles.image_container}>
-                <img src={props.imageUri} alt={`capa do menu ${props.name}`} />
+                <img src={props.menu.imageUri} alt={`capa do menu ${props.menu.name}`} />
             </div>
             <div className={styles.content_container}>
                 <div className={styles.text_container}>
                     <h1 className={styles.title}>
-                        {props.name}
+                        {props.menu.name}
                     </h1>
                     <p className={styles.description}>
-                        {props.description}
+                        {props.menu.description}
                     </p>
                 </div>
                 <div className={styles.info_container}>
@@ -32,14 +36,14 @@ const Menu = (props: MenuMinDTO) => {
                 <div className={styles.display_container}>
                     <p className={styles.display_title}>Exibição:</p>
                     <ul className={styles.display_list}>
-                        <li className={styles.display_list_item}>Seg</li>
-                        <li className={styles.display_list_item}>/</li>
-                        <li className={styles.display_list_item}>Qua</li>
-                        <li className={styles.display_list_item}>/</li>
-                        <li className={styles.display_list_item}>Sex</li>
+                        {
+                            props.menu.workingDays.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))
+                        }
                     </ul>
                 </div>
-                <Link className={styles.button} to={`/admin/menus/${props.id}`}>Detalhes</Link>
+                <Link className={styles.button} to={`/admin/menus/${props.menu.id}`}>Detalhes</Link>
             </div>
         </div>
     )
