@@ -13,7 +13,7 @@ const MenusPage = () => {
         const fetchMenu = async () => {
             try {
                 const response = await api.get('/menus');
-                console.log(response.data.content.length)
+                console.log(response.data.content)
                 setMenus(response.data.content);
 
             } catch (error) {

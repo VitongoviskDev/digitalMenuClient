@@ -58,21 +58,16 @@
     color: #2c2c2c;
 }
 
-.display_container{
+.display_dates{
     width: 100%;
 }
-.display_title{
+.display_dates_title{
     font-size: 1.2em;
     font-weight: 600;
     color: #2c2c2c;
 }
-.display_list{
-    display: flex;
-    gap: .4em;
-}
-.display_list_item{
+.display_dates_item{
     font-size: 1em;
-    list-style-type: none;
 }
 
 .button{

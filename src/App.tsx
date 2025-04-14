@@ -8,6 +8,7 @@ import styles from './App.module.css';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import NotFoundPage from './pages/NotFoundPage';
+import TodasyMenuPage from './pages/TodasyMenuPage';
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/today/menu" element={<TodasyMenuPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

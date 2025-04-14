@@ -15,31 +15,30 @@ import { MenuSectionDTO } from '../../../dtos/MenuSectionDTO';
 const MenuDetailsPage = () => {
   const { id } = useParams();
 
-  interface sectionItem{
+  interface sectionItem {
     section: MenuSectionDTO,
     item: ProductDTO
   }
 
   const [menu, setMenu] = useState<MenuDTO>();
-  const [deleteItem, setDeleteItem] = useState< sectionItem | null>(null);
+  const [deleteItem, setDeleteItem] = useState<sectionItem | null>(null);
 
-
+  const fetchMenu = async () => {
+    try {
+      const response = await api.get(`/menus/${id}`);
+      setMenu(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar menu:', error);
+    }
+  };
   useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await api.get(`/menus/${id}`);
-        setMenu(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar menu:', error);
-      }
-    };
-
     fetchMenu();
+    console.log("fecthing");
   }, []);
 
 
-  const onDeleteItemClicked = (section: MenuSectionDTO,item: ProductDTO) => {
-    setDeleteItem({section, item});
+  const onDeleteItemClicked = (section: MenuSectionDTO, item: ProductDTO) => {
+    setDeleteItem({ section, item });
   }
 
   const handlePopupButtonClick = async (del: boolean) => {
@@ -52,9 +51,9 @@ const MenuDetailsPage = () => {
 
           const updateSection: MenuSectionDTO = { ...deleteItem.section, products: updatedProducts };
 
-          const response = await api.put(`/sections/${id}`, updateSection);
-
-          setMenu(response.data);
+          await api.put(`/sections/${deleteItem.section.id}`, updateSection);
+          
+          fetchMenu();
         } catch (error) {
           console.error('Erro ao excluir item:', error);
         }
@@ -74,7 +73,7 @@ const MenuDetailsPage = () => {
       {
         menu ?
           <div className={styles.page_container}>
-            <Link className={styles.back_arrow} to={"/menus"}>
+            <Link className={styles.back_arrow} to={"/admin/menus"}>
               <IoMdArrowBack className={styles.icon} />
               <p className={styles.text}>Menus</p>
             </Link>
@@ -85,7 +84,7 @@ const MenuDetailsPage = () => {
               <h2 className={styles.title}>{menu.name}</h2>
               <p className={styles.description}>{menu.description}</p>
               <p className={styles.items_label}>Itens <span>({menu.itemsAmount})</span></p>
-              <MenuSectionContainer menu={menu} onDeleteItemClicked={onDeleteItemClicked}/>
+              <MenuSectionContainer menu={menu} onDeleteItemClicked={onDeleteItemClicked} />
             </div>
           </div> :
           <>

@@ -26,22 +26,22 @@ const Menu = (props: MenuProps) => {
                 <div className={styles.info_container}>
                     <div className={styles.info_item}>
                         <p>Itens</p>
-                        <span>25 itens</span>
+                        <span>{props.menu.productCount} itens</span>
                     </div>
                     <div className={styles.info_item}>
                         <p>Status</p>
                         <span>Disponível</span>
                     </div>
                 </div>
-                <div className={styles.display_container}>
-                    <p className={styles.display_title}>Exibição:</p>
-                    <ul className={styles.display_list}>
-                        {
-                            props.menu.workingDays.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))
-                        }
-                    </ul>
+                <div className={styles.display_dates}>
+                    <h2 className={styles.display_dates_title}>Exibição:</h2>
+                    <p className={styles.display_dates_item}>
+                    {
+                        props.menu.workingDays
+                            .map(x => x.slice(0,3))
+                            .join(" - ")
+                    }
+                    </p>
                 </div>
                 <Link className={styles.button} to={`/admin/menus/${props.menu.id}`}>Detalhes</Link>
             </div>

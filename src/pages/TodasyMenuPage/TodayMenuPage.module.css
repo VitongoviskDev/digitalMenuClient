@@ -1,0 +1,43 @@
+.today_page_container{
+    background-color: #464646;
+    min-height: 100vh;
+
+    padding: 2em;
+}
+.menu_title_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 1em;
+}
+.menu_title{
+    color: #e0a423;
+}
+.section_title{
+    font-size: 1.2em;
+    color: #e0a423;
+}
+.section_items_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 1em;
+}
+
+.section_list_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #f2f2f2;
+    gap: .5em;
+}
+.doted_line{
+    flex: 1;
+    height: .8em;
+    border-bottom: 1px dashed #f2f2f2;
+}
