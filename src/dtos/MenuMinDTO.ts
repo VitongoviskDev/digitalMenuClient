@@ -5,7 +5,7 @@ export type MenuMinDTO = {
     name: string;
     description: string;
     imageUri: string;
-    workingDays: String[];
+    workingDay: String;
     productCount: number;
   };
   

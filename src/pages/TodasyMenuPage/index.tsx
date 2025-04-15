@@ -31,8 +31,14 @@ const TodaysMenuPage = () => {
 
   return (
     <div className={styles.today_page_container}>
+      <div className={styles.header}>
+        <div className={styles.image_container}>
+          <img src={menu.imageUri} alt={menu.name} className={styles.image} />
+        </div>
+      </div>
       <div className={styles.menu_title_container}>
         <h1 className={styles.menu_title}>{menu.name}</h1>
+        <h1 className={styles.menu_description}>{menu.description}</h1>
       </div>
       <div className={styles.menu_items_container}>
         {menu.menuSections.map((section, idx) => (

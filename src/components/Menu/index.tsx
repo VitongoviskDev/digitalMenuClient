@@ -37,9 +37,7 @@ const Menu = (props: MenuProps) => {
                     <h2 className={styles.display_dates_title}>Exibição:</h2>
                     <p className={styles.display_dates_item}>
                     {
-                        props.menu.workingDays
-                            .map(x => x.slice(0,3))
-                            .join(" - ")
+                        props.menu.workingDay
                     }
                     </p>
                 </div>

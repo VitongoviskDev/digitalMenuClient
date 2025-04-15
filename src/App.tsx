@@ -27,7 +27,7 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/today/menu" element={<TodasyMenuPage />} />
+        <Route path="/menus/today" element={<TodasyMenuPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
