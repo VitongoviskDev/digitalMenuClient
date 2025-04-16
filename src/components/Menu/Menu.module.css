@@ -3,7 +3,7 @@
     width: 80vw;
 
     overflow: hidden;
-    background-color: #f2f2f2;
+    background-color: var(--cls-background);
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
@@ -18,7 +18,7 @@
     width: 100%;
     aspect-ratio: 1;
 
-    background-color: #2c2c2c;
+    background-color: var(--cls-primary);
     
     overflow: hidden;
     
@@ -49,13 +49,13 @@
     justify-content: center;
     align-items: center;
     
-    background-color: #e5e5e5;
+    background-color: var(--cls-secondary);
     border-radius: .5em;
 
 }
 .info_item p{
     font-weight: 600;
-    color: #2c2c2c;
+    color: var(--cls-primary);
 }
 
 .display_dates{
@@ -64,7 +64,7 @@
 .display_dates_title{
     font-size: 1.2em;
     font-weight: 600;
-    color: #2c2c2c;
+    color: var(--cls-primary);
 }
 .display_dates_item{
     font-size: 1em;
@@ -78,8 +78,8 @@
     text-decoration: none;
     font-size: 1.2em;
 
-    color: #f2f2f2;
-    background-color: #2c2c2c;
+    color: var(--cls-background);
+    background-color: var(--cls-primary);
 
     border-radius: 2em;
     border: none;

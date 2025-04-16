@@ -26,15 +26,17 @@
 }
 .menu_title_container{
     text-align: center;
-    padding: 6vh 2em 1em 2em;
+    padding: 8vh 2em 1em 2em;
 }
 .menu_title{
     font-size: 2em;
 }
 .menu_description{
+    margin-top: .5em;
+
     font-size: 1em;
     font-weight: 400;
-    text-align: left;
+    text-align: justify;
     color: #2c2c2c;
 }
 

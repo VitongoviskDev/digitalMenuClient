@@ -1,0 +1,30 @@
+.menu_home_page{
+    height: 100%;
+
+    text-align: center;
+    padding: 2em;
+}
+
+.options_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    
+    height: 100%;
+}
+
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60vw;
+    aspect-ratio: 1;
+    background-color: #3c3c3c;
+    border-radius: 2rem;
+
+    font-size: 20vw;
+    color: #e0a423;
+}

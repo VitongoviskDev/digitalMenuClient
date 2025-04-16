@@ -3,7 +3,7 @@ import styles from './TodayMenuPage.module.css';
 import { MenuDTO } from '../../dtos/MenuDTO';
 import api from '../../../axiosConfig';
 
-const TodaysMenuPage = () => {
+const TodasyRestaurantMenuPage = () => {
   const [menu, setMenu] = useState<MenuDTO>();
   const [error, setError] = useState<string>();
 
@@ -62,4 +62,4 @@ const TodaysMenuPage = () => {
   );
 };
 
-export default TodaysMenuPage;
+export default TodasyRestaurantMenuPage;
